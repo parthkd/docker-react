@@ -1,0 +1,11 @@
+version: '3'
+services:
+    web:
+        build: .
+        ports:
+            - "3021:3000"
+    tests:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command: ["npm","run","test"]
