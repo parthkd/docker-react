@@ -6,7 +6,7 @@ before_install:
 script:
     - docker run -e CI=true parthkd/docker-react npm run test -- --coverage
 deploy:
-    provider: elsticbeanstalk
+    provider: elasticbeanstalk
     region: "ap-south-1"
     app: "music"
     env: "Music-env"
