@@ -2,7 +2,7 @@ sudo: required
 services:
     - docker
 before_install:
-    - docker build -t parthkd/docker-react -f Dockerfile.dev .
+    - docker build -t parthkd/docker-react .
 script:
     - docker run -e CI=true parthkd/docker-react npm run test -- --coverage
 deploy:
