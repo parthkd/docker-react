@@ -5,3 +5,15 @@ before_install:
     - docker build -t parthkd/docker-react -f Dockerfile.dev .
 script:
     - docker run -e CI=true parthkd/docker-react npm run test -- --coverage
+deploy:
+    provider: elsticbeanstalk
+    region: "us-east-1"
+    app: "music"
+    env: "Music-env"
+    bucket_name: "elasticbeanstalk-ap-south-1-114202818192"
+    bucket_path: "music"
+    on:
+        branch: "master"
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+        secure: "$AWS_SECRET_KEY"
